@@ -1,0 +1,42 @@
+Hello!
+
+1. Everything is private
+-> The only fields we observed to have getters were 
+getX, getY in Posn 
+  // OBSERVATION: used when finding the position of a cell
+  // cannot define a posn without the access to x or y field
+getFrom, getTo in Edge
+  // OBSERVATION: the use of an edge is to know what its connected to
+  // unable to use an edge without getting its from and to
+getEdges in MazeCell
+  // OBSERVATION: used in kruskals algorithm method to add the edges to the
+  // worklist, so it can then sort and unionize them
+
+each of these observations are documented in the purpose statements 
+for each of the methods as well
+
+2. Only one thing is not final and that is the gameMode string in 
+MazeWorld because we need to change the game mode/game state as we play the game
+
+3. Key presses:
+press the arrow keys to traverse the maze manually
+
+(warning for the following two: they are not searching correctly)
+press d for depth first search animation
+press b for breadth first search animation
+
+press n for a new maze
+
+
+4. when you complete the maze, an ending screen will show indicating that you found the path
+
+5. scaling works when you change the size of the pixels in the example
+
+class ExamplesMazeWorld {
+  void testMakeScene(Tester t) {
+    MazeWorld world = new MazeWorld(5, 5);
+    world.bigBang(1000, 1000, 0.1);
+  }
+  ^^ replace the 5, 5 with (n, n)
+  where n is any number u desire that fits in the limits
+}
